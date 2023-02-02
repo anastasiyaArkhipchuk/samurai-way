@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
-import {Technologies} from "./Technologies";
-import {Header} from "./Header";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Header/>
-      <Technologies/>
+    <div className='app-wrapper'>
+        <header className='header'>
+            <img src='https://www.edigitalagency.com.au/wp-content/uploads/Twitter-logo-png.png'/>
+        </header>
+        <nav className='nav'>
+            <div>Profile</div>
+            <div>Message</div>
+        </nav>
+        <div className='content'>Main content</div>
     </div>
   );
 }

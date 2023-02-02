@@ -1,3 +1,15 @@
+.app-wrapper {
+  display: grid;
+}
+.nav{
+grid-area: n;
+}
+.header{
+grid-area: h;
+}
+.content{
+grid-area: c;
+}
 .App {
   text-align: center;
 }
