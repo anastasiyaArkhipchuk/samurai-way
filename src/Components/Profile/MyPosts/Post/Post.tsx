@@ -1,13 +1,17 @@
 import s from "./Post.module.css";
 import React from "react";
 
-export const Post = () => {
+type PostProps = {
+    message: string
+    likecount: string
+}
+export const Post = (props: PostProps) => {
     return (
         <div className={s.item}>
             <img src='https://memepedia.ru/wp-content/uploads/2021/10/liza-oblozhka-alboma-hate-love.jpg'/>
-            post 1
+            {props.message}
             <div>
-                <span>like</span>
+                <span>like {props.likecount}</span>
             </div>
         </div>
     )
