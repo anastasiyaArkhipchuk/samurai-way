@@ -12,10 +12,10 @@ import {News} from "./Components/News/News";
 const App = () => {
     return (
         <BrowserRouter>
-        <div>
+        <div className='appWrapper'>
             <Header/>
             <Navbar/>
-            <div className='app-wrapper-content'>
+            <div className='appWrapperContent'>
                 <Route path='/dialogs' component={Dialogs}/>
                 <Route path='/profile' component={Profile}/>
                 <Route path='/settings' component={Settings}/>
