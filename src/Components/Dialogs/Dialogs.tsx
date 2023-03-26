@@ -37,45 +37,16 @@ export const Dialogs = () => {
         {id: 2,title: 'How is your IT-kamasutra?'},
         {id: 3,title: 'Yo'}
     ]
-
+let dialogsItems =  dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
+let messagesElements = messagesData.map(m=> <MessageItems title={m.title} id={m.id}/>)
     return (
         <div>
             <div className={s.dialogs}>
                 <div className={s.dialogsItems}>
-                    <DialogItem
-                        name={dialogsData[0].name}
-                        id={dialogsData[0].id}
-                    />
-                    <DialogItem
-                        name={dialogsData[1].name}
-                        id={dialogsData[1].id}
-                    />
-                    <DialogItem
-                        name={dialogsData[2].name}
-                        id={dialogsData[2].id}
-                    />
-                    <DialogItem
-                        name={dialogsData[3].name}
-                        id={dialogsData[3].id}
-                    />
-                    <DialogItem
-                        name={dialogsData[4].name}
-                        id={dialogsData[4].id}
-                    />
+                    {dialogsItems}
                 </div>
                 <div className={s.messages}>
-                    <MessageItems
-                        title={messagesData[0].title}
-                        id={messagesData[0].id}
-                    />
-                    <MessageItems
-                        title={messagesData[1].title}
-                        id={messagesData[1].id}
-                    />
-                    <MessageItems
-                        title={messagesData[2].title}
-                        id={messagesData[2].id}
-                    />
+                    {messagesElements}
                 </div>
             </div>
 
