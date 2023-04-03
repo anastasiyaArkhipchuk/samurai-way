@@ -8,12 +8,34 @@ import {Profile} from "./Components/Profile/Profile";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
-import {DialogsDataProps, MessagesDataProps, PostDataProps} from "./index";
 
-type AppPropsType = {
+
+export type PostDataProps = {
+    id: number
+    title: string
+    likecount: number
+}
+export type DialogsDataProps = {
+    id: number
+    name: string
+}
+export type MessagesDataProps = {
+    id: number
+    title: string
+}
+export type ProfilePagePropsType = {
     posts: Array<PostDataProps>
-    dialogs: Array<DialogsDataProps>
+}
+export type DialogsPagePropsType = {
     messages: Array<MessagesDataProps>
+    dialogs: Array<DialogsDataProps>
+}
+export type StateAppPropsType = {
+    profilePage: ProfilePagePropsType
+    dialogsPage: DialogsPagePropsType
+}
+type AppPropsType = {
+    state: StateAppPropsType
 }
 const App = (props: AppPropsType) => {
     return (
@@ -23,11 +45,10 @@ const App = (props: AppPropsType) => {
             <Navbar/>
             <div className='appWrapperContent'>
                 <Route path='/dialogs' render={()=><Dialogs
-                    dialogs={props.dialogs}
-                    messages={props.messages}
+                    state={props.state.dialogsPage}
                 />}/>
                 <Route path='/profile' render={()=><Profile
-                    posts={props.posts}
+                    state={props.state.profilePage}
                 />}/>
                 <Route path='/settings' render={()=><Settings/>}/>
                 <Route path='/music' render={()=><Music/>}/>

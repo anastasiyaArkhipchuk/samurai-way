@@ -1,7 +1,8 @@
 import s from "../MyPosts/MyPosts.module.css";
 import React from "react";
 import {Post} from "./Post/Post";
-import {PostDataProps} from "../../../index";
+import {PostDataProps} from "../../../App";
+
 
 
 type MyPostsPropsType = {
