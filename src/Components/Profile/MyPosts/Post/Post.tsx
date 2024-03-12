@@ -3,7 +3,7 @@ import React from "react";
 
 type PostProps = {
     message: string
-    likecount: number
+    likeCount: number
 }
 export const Post = (props: PostProps) => {
     return (
@@ -11,7 +11,7 @@ export const Post = (props: PostProps) => {
             <img src='https://memepedia.ru/wp-content/uploads/2021/10/liza-oblozhka-alboma-hate-love.jpg'/>
             {props.message}
             <div>
-                <span>like {props.likecount}</span>
+                <span>like {props.likeCount}</span>
             </div>
         </div>
     )

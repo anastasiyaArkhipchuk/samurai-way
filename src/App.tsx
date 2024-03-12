@@ -13,7 +13,7 @@ import {Route, Switch} from "react-router-dom";
 export type PostDataProps = {
     id: number
     title: string
-    likecount: number
+    likeCount: number
 }
 export type DialogsDataProps = {
     id: number
@@ -25,6 +25,7 @@ export type MessagesDataProps = {
 }
 export type ProfilePagePropsType = {
     posts: Array<PostDataProps>
+
 }
 export type DialogsPagePropsType = {
     messages: Array<MessagesDataProps>
@@ -36,6 +37,7 @@ export type StateAppPropsType = {
 }
 type AppPropsType = {
     state: StateAppPropsType
+    addPost: (postMessage:string)=>void
 }
 const App = (props: AppPropsType) => {
     return (
@@ -49,6 +51,7 @@ const App = (props: AppPropsType) => {
                     />}/>
                     <Route path='/profile' render={()=><Profile
                         state={props.state.profilePage}
+                        addPost={props.addPost}
                     />}/>
                     <Route path='/settings' render={()=><Settings/>}/>
                     <Route path='/music' render={()=><Music/>}/>

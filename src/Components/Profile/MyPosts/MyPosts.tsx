@@ -1,5 +1,5 @@
 import s from "../MyPosts/MyPosts.module.css";
-import React from "react";
+import React, {MouseEventHandler} from "react";
 import {Post} from "./Post/Post";
 import {PostDataProps} from "../../../App";
 
@@ -7,15 +7,16 @@ import {PostDataProps} from "../../../App";
 
 type MyPostsPropsType = {
     posts: Array<PostDataProps>
+    addPost: (postMessage:string)=> void
 }
 export const MyPosts = (props: MyPostsPropsType) => {
 
-    let postItems = props.posts.map(p=> <Post message={p.title} likecount={p.likecount}/>)
+    let postItems = props.posts.map(p=> <Post message={p.title} likeCount={p.likeCount}/>)
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
     let addPostHandler = () => {
-        let text = newPostElement.current?.value
-        alert(text)
+        let text:string | undefined = newPostElement.current?.value
+      if (text) props.addPost(text)
     }
     return (
         <div className={s.postsBlock}>

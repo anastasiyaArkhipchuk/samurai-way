@@ -1,8 +1,10 @@
 import React from "react";
 import s from './Header.module.css';
+import logo from '../../Images/logo.png'
+
 export const Header = () => {
     return (
         <header className={s.header}>
-            <img src='https://www.edigitalagency.com.au/wp-content/uploads/Twitter-logo-png.png'/>
+            <img src={logo} />
         </header>)
 }
