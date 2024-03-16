@@ -8,6 +8,8 @@ import {ProfilePagePropsType} from "../../App";
 type ProfilePropsType={
     state: ProfilePagePropsType
     addPost: (postMessage:string) => void
+
+    updateNewPost: (newText:string)=>void
 }
 export const Profile = (props: ProfilePropsType) => {
     return (
@@ -15,6 +17,8 @@ export const Profile = (props: ProfilePropsType) => {
             <ProfileInfo/>
             <MyPosts posts={props.state.posts}
                      addPost={props.addPost}
+                     newPostText={props.state.newPostText}
+                     updateNewPost={props.updateNewPost}
             />
         </div>)
 }

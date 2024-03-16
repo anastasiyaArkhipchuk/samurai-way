@@ -1,6 +1,9 @@
+import {PostDataProps, StateAppPropsType} from "../../App";
+import {renderEntireTree} from "../../render";
 
-export let state = {
+export let state:StateAppPropsType = {
     profilePage: {
+        newPostText: "IT-incubator",
         posts: [
             {id: 1,title: 'Hi, how are you?', likeCount: 45},
             {id: 2,title: 'It is my first post', likeCount: 0}
@@ -22,9 +25,15 @@ export let state = {
     }
     }
 
-export const addPost = (postMessage) => {
-    let NewPost = {
-        id: 3, title: postMessage, likeCount:0
+export const addPost = () => {
+    let NewPost: PostDataProps = {
+        id: 3, title: state.profilePage.newPostText, likeCount:0
     }
     state.profilePage.posts.push(NewPost)
+    state.profilePage.newPostText=""
+    renderEntireTree(state)
+}
+export const updateNewPost = (newText: string) => {
+    state.profilePage.newPostText=newText
+    renderEntireTree(state)
 }

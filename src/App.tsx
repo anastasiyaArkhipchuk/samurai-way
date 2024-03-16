@@ -24,6 +24,7 @@ export type MessagesDataProps = {
     title: string
 }
 export type ProfilePagePropsType = {
+    newPostText:string
     posts: Array<PostDataProps>
 
 }
@@ -37,7 +38,9 @@ export type StateAppPropsType = {
 }
 type AppPropsType = {
     state: StateAppPropsType
-    addPost: (postMessage:string)=>void
+    addPost: ()=>void
+    updateNewPost: (newText:string)=>void
+
 }
 const App = (props: AppPropsType) => {
     return (
@@ -52,6 +55,7 @@ const App = (props: AppPropsType) => {
                     <Route path='/profile' render={()=><Profile
                         state={props.state.profilePage}
                         addPost={props.addPost}
+                        updateNewPost={props.updateNewPost}
                     />}/>
                     <Route path='/settings' render={()=><Settings/>}/>
                     <Route path='/music' render={()=><Music/>}/>
