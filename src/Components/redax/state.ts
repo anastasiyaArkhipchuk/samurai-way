@@ -1,6 +1,8 @@
 import {PostDataProps, StateAppPropsType} from "../../App";
-import {renderEntireTree} from "../../render";
 
+let renderEntireTree = (state: StateAppPropsType) => {
+
+}
 export let state:StateAppPropsType = {
     profilePage: {
         newPostText: "IT-incubator",
@@ -24,7 +26,9 @@ export let state:StateAppPropsType = {
         ]
     }
     }
-
+export const subscribe = (observer: ((state: StateAppPropsType) => void)) => {
+    renderEntireTree=observer
+}
 export const addPost = () => {
     let NewPost: PostDataProps = {
         id: 3, title: state.profilePage.newPostText, likeCount:0
